@@ -21,7 +21,7 @@ class ModelTests(TestCase):
         email = 'aeiou@GMAIL.COM'
         user = get_user_model().objects.create_user(email, 'abc123')
 
-        self.assertEqual(user.email, email.lower())
+        self.assertEqual(user.email,email.lower())
 
     def test_new_user_invalid_email(self):
         """Test if new user email is valid"""
