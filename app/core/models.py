@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.conf import settings
 
 
 class UserManager(BaseUserManager):
@@ -59,4 +60,12 @@ class CustomUser(AbstractUser):
     """Do not use get_username, otherwise it will override email field as
     username field."""
     def get_firstname(self):
+        return self.name
+
+class Tag(models.Model):
+    """Create tag model"""
+    name = models.CharField(max_length=255)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
         return self.name
