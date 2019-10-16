@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
-from .models import CustomUser, Tag
+from .models import CustomUser, Tag, Ingredient
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -32,3 +32,4 @@ class CustomUserAdmin(DjangoUserAdmin):
 
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(Tag)
+admin.site.register(Ingredient)
